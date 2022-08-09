@@ -1,0 +1,17 @@
+D:\desenvolvimento\CupomMercado\CupomMercado\bin\Debug\net6.0-windows\CupomMercado.exe
+D:\desenvolvimento\CupomMercado\CupomMercado\bin\Debug\net6.0-windows\CupomMercado.deps.json
+D:\desenvolvimento\CupomMercado\CupomMercado\bin\Debug\net6.0-windows\CupomMercado.runtimeconfig.json
+D:\desenvolvimento\CupomMercado\CupomMercado\bin\Debug\net6.0-windows\CupomMercado.dll
+D:\desenvolvimento\CupomMercado\CupomMercado\bin\Debug\net6.0-windows\CupomMercado.pdb
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.csproj.AssemblyReference.cache
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.Form1.resources
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.csproj.GenerateResource.cache
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.GeneratedMSBuildEditorConfig.editorconfig
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.AssemblyInfoInputs.cache
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.AssemblyInfo.cs
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.csproj.CoreCompileInputs.cache
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.dll
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\refint\CupomMercado.dll
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.pdb
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\CupomMercado.genruntimeconfig.cache
+D:\desenvolvimento\CupomMercado\CupomMercado\obj\Debug\net6.0-windows\ref\CupomMercado.dll
