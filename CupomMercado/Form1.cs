@@ -30,7 +30,8 @@ namespace CupomMercado
                 }
 
                 AtacadaoStaTerezinha atacadaoStaTerezinha = new AtacadaoStaTerezinha(texto);
-                txtSaida.Text = atacadaoStaTerezinha.SeparaLinhas();
+                string linha = atacadaoStaTerezinha.SeparaLinhas();
+                atacadaoStaTerezinha.RefinaTexto(linha);
             }
         }
     }
