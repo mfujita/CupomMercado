@@ -31,6 +31,7 @@
             this.btnEscolherArquivo = new System.Windows.Forms.Button();
             this.txtSaida = new System.Windows.Forms.TextBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
+            this.rbAtacadao = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnEscolherArquivo
@@ -56,11 +57,23 @@
             // 
             this.ofd.FileName = "openFileDialog1";
             // 
+            // rbAtacadao
+            // 
+            this.rbAtacadao.AutoSize = true;
+            this.rbAtacadao.Location = new System.Drawing.Point(189, 12);
+            this.rbAtacadao.Name = "rbAtacadao";
+            this.rbAtacadao.Size = new System.Drawing.Size(92, 25);
+            this.rbAtacadao.TabIndex = 2;
+            this.rbAtacadao.TabStop = true;
+            this.rbAtacadao.Text = "Atacadão";
+            this.rbAtacadao.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 487);
+            this.Controls.Add(this.rbAtacadao);
             this.Controls.Add(this.txtSaida);
             this.Controls.Add(this.btnEscolherArquivo);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -79,5 +92,6 @@
         private Button btnEscolherArquivo;
         private TextBox txtSaida;
         private OpenFileDialog ofd;
+        private RadioButton rbAtacadao;
     }
 }

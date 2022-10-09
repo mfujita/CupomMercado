@@ -29,10 +29,14 @@ namespace CupomMercado
                     texto += item + " ";
                 }
 
-                AtacadaoStaTerezinha atacadaoStaTerezinha = new AtacadaoStaTerezinha(texto);
-                string linha = atacadaoStaTerezinha.SeparaLinhas();
-                List<AtacadaoStaTerezinhaVar> lista = atacadaoStaTerezinha.RefinaTexto(linha);
-                atacadaoStaTerezinha.WriteTicket(lista);
+                if  (rbAtacadao.Checked)
+                {
+                    AtacadaoStaTerezinha atacadaoStaTerezinha = new AtacadaoStaTerezinha(texto);
+                    string linha = atacadaoStaTerezinha.SeparaLinhas();
+                    List<AtacadaoStaTerezinhaVar> lista = atacadaoStaTerezinha.RefinaTexto(linha);
+                    atacadaoStaTerezinha.WriteTicket(lista);
+                }
+
                 MessageBox.Show("Ok!");
             }
         }
