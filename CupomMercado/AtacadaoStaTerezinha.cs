@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CupomMercado
@@ -21,6 +22,8 @@ namespace CupomMercado
             string filtrado = "";
             int i = 1;
             string[] campos = texto.ToString().Split(' ');
+            
+
             rodape = new List<string>();
 
             foreach (string campo in campos)
@@ -30,69 +33,25 @@ namespace CupomMercado
                     filtrado += campo.Replace(i.ToString().PadLeft(3, '0'), System.Environment.NewLine + i.ToString().PadLeft(3, '0') + " ");
                     i++;
                 }
-                else if (campo.ToString().Contains("Total"))
-                {
-                    rodape.Add(filtrado.Replace("Total", System.Environment.NewLine + "Total"));
-                    filtrado = "";
-                }
-                else if (campo.ToString().Contains("TOTAL"))
-                {
-                    rodape.Add(filtrado.Replace("TOTAL", Environment.NewLine + "TOTAL"));
-                    filtrado = "";
-                }
-                else if (campo.ToString().Contains("Vale"))
-                {
-                    rodape.Add(filtrado.Replace("Vale", Environment.NewLine + "Vale"));
-                    filtrado = "";
-                }
-                else if (campo.ToString().Contains("Cartao"))
-                {
-                    rodape.Add(filtrado.Replace("Cartao", Environment.NewLine + "Cartao"));
-                    filtrado = "";
-                }
-                else if (campo.ToString().Contains("Tributos"))
-                {
-                    rodape.Add(filtrado.Replace("Tributos", Environment.NewLine + "Tributos "));
-                    filtrado = "";
-                }
-                else if (campos[i].ToString().Contains("SAT"))
-                {
-                    rodape.Add(filtrado.Replace("SAT", Environment.NewLine + "SAT"));
-                    filtrado = "";
-                }
+                else if (campo.Equals("Total"))
+                    break;
                 else
                 {
                     filtrado += campo + " ";
                 }
             }
 
-            //filtrado = filtrado.Replace("Total bruto de Itens", System.Environment.NewLine + "Total bruto de Itens");
-            //filtrado = filtrado.Replace("Total de descontos/acrescidos sobre iten", Environment.NewLine + "Total de descontos/acrescidos sobre iten");
-            //filtrado = filtrado.Replace("TOTAL", Environment.NewLine + "TOTAL");
-            //filtrado = filtrado.Replace("Vale Alimentacao", Environment.NewLine + "Vale Alimentacao");
-            //filtrado = filtrado.Replace("Cartao de Credito", Environment.NewLine + "Cartao de Credito");
-            //filtrado = filtrado.Replace("Tributos", Environment.NewLine + "Tributos ");
-            //filtrado = filtrado.Replace("SAT NO.", Environment.NewLine + "SAT No.");
-
-            
-            //rodape.Add(filtrado.Replace("Total de descontos/acrescidos sobre iten", Environment.NewLine + "Total de descontos/acrescidos sobre iten"));
-            //rodape.Add(filtrado.Replace("TOTAL", Environment.NewLine + "TOTAL"));
-            //rodape.Add(filtrado.Replace("Vale Alimentacao", Environment.NewLine + "Vale Alimentacao"));
-            //rodape.Add(filtrado.Replace("Cartao de Credito", Environment.NewLine + "Cartao de Credito"));
-            //rodape.Add(filtrado.Replace("Tributos", Environment.NewLine + "Tributos "));
-            //rodape.Add(filtrado.Replace("SAT NO.", Environment.NewLine + "SAT No."));
-
             return filtrado;
         }
 
-        public List<AtacadaoStaTerezinhaVar> RefinaTexto(string linhas)
+        public List<Dados> RefinaTexto(string linhas)
         {
             string[] campos = linhas.Split("\r\n");
             string indice="";
             string codigo = "";
             string descricao = "";
             string preco = "";
-            List<AtacadaoStaTerezinhaVar> listaDetalhada = new List<AtacadaoStaTerezinhaVar>();
+            List<Dados> listaDetalhada = new List<Dados>();
             string erro = "";
 
             for (int i = 0; i < campos.Length; i++)
@@ -107,22 +66,21 @@ namespace CupomMercado
                         descricao = campos[i].Substring(13, xEspaco - 14);
                         int fechaParenteses = campos[i].IndexOf(')');
                         preco = campos[i].Substring(fechaParenteses + 1, campos[i].Length - fechaParenteses - 1).Trim();
-                        AtacadaoStaTerezinhaVar var = new AtacadaoStaTerezinhaVar(indice, codigo, descricao, preco);
+                        Dados var = new Dados(indice, codigo, descricao, preco);
                         listaDetalhada.Add(var);
                     }
                     catch
                     {
                         erro += indice + "\t" + codigo + "\t" + descricao + "\t" + preco;
+                        MessageBox.Show(erro);
                     }
                 }
             }
 
-            MessageBox.Show(erro);
-
             return listaDetalhada;
         }
 
-        public void WriteTicket(List<AtacadaoStaTerezinhaVar> lista)
+        public void WriteTicket(List<Dados> lista)
         {
             StringBuilder builder = new StringBuilder();
 
@@ -145,9 +103,8 @@ namespace CupomMercado
             builder.Append("      </tr>" + Environment.NewLine);
             builder.Append("    </thead>" + Environment.NewLine);
             builder.Append("    <tbody>" + Environment.NewLine);
-            
 
-            foreach (AtacadaoStaTerezinhaVar item in lista)
+            foreach (Dados item in lista)
             {
                 builder.Append("      <tr>" + Environment.NewLine);
                 builder.Append("        <td>" + item.indice + "</td>" + Environment.NewLine);

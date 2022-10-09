@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace CupomMercado
 {
-    class AtacadaoStaTerezinhaVar
+    class Dados
     {
         public string indice { get; set; }
         public string codProduto { get; set; }
         public string descricao { get; set; }
         public string preco { get; set; }
 
-        public AtacadaoStaTerezinhaVar(string i, string c, string d, string p)
+        public Dados(string i, string c, string d, string p)
         {
             indice = i;
             codProduto = c;
