@@ -47,6 +47,8 @@ namespace CupomMercado
                     
                     linha = pagueMenos.RetiraCodigo(linha);
                     txtSaida.Text = linha;
+                    List<Dados> lista = pagueMenos.SeparaColunas(linha);
+                    pagueMenos.WriteTicket(lista);
                 }
 
                 MessageBox.Show("Ok!");

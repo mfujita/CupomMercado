@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CupomMercado
 {
-    class Dados
+    public class Dados
     {
         public string indice { get; set; }
         public string codProduto { get; set; }
