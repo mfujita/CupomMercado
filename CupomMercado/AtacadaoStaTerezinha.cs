@@ -10,11 +10,13 @@ namespace CupomMercado
     class AtacadaoStaTerezinha
     {
         string texto = "";
+        string fileName = "";
         List<string> rodape = null;
 
-        public AtacadaoStaTerezinha(string todoTexto)
+        public AtacadaoStaTerezinha(string todoTexto, string nomeArquivo)
         {
             texto = todoTexto;
+            fileName = nomeArquivo;
         }
 
         public string SeparaLinhas()
@@ -128,7 +130,7 @@ namespace CupomMercado
             builder.Append(" </body>" + Environment.NewLine);
             builder.Append("</html>" + Environment.NewLine);
 
-            using (FileStream fs = new FileStream("cupom.html", FileMode.Create))
+            using (FileStream fs = new FileStream(fileName, FileMode.Create))
             {
                 using(StreamWriter sw = new StreamWriter(fs))
                 {

@@ -32,6 +32,7 @@
             this.txtSaida = new System.Windows.Forms.TextBox();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.rbAtacadao = new System.Windows.Forms.RadioButton();
+            this.rbPagueMenos = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnEscolherArquivo
@@ -68,11 +69,23 @@
             this.rbAtacadao.Text = "Atacadão";
             this.rbAtacadao.UseVisualStyleBackColor = true;
             // 
+            // rbPagueMenos
+            // 
+            this.rbPagueMenos.AutoSize = true;
+            this.rbPagueMenos.Location = new System.Drawing.Point(309, 12);
+            this.rbPagueMenos.Name = "rbPagueMenos";
+            this.rbPagueMenos.Size = new System.Drawing.Size(121, 25);
+            this.rbPagueMenos.TabIndex = 3;
+            this.rbPagueMenos.TabStop = true;
+            this.rbPagueMenos.Text = "Pague Menos";
+            this.rbPagueMenos.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 487);
+            this.Controls.Add(this.rbPagueMenos);
             this.Controls.Add(this.rbAtacadao);
             this.Controls.Add(this.txtSaida);
             this.Controls.Add(this.btnEscolherArquivo);
@@ -93,5 +106,6 @@
         private TextBox txtSaida;
         private OpenFileDialog ofd;
         private RadioButton rbAtacadao;
+        private RadioButton rbPagueMenos;
     }
 }

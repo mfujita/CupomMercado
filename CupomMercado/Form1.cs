@@ -22,7 +22,7 @@ namespace CupomMercado
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string[] todoTexto = File.ReadAllLines(ofd.FileName);
-                string nomeArquivo = Path.GetFileNameWithoutExtension(ofd.FileName);
+                
                 string texto = "";
 
                 foreach (var item in todoTexto)
@@ -32,11 +32,21 @@ namespace CupomMercado
 
                 if  (rbAtacadao.Checked)
                 {
-                    AtacadaoStaTerezinha atacadaoStaTerezinha = new AtacadaoStaTerezinha(texto);
+                    string nomeArquivo = Path.GetFileNameWithoutExtension(ofd.FileName);
+                    AtacadaoStaTerezinha atacadaoStaTerezinha = new AtacadaoStaTerezinha(texto, nomeArquivo);
                     string linha = atacadaoStaTerezinha.SeparaLinhas();
                     txtSaida.Text = linha;
                     List<Dados> lista = atacadaoStaTerezinha.RefinaTexto(linha);
                     atacadaoStaTerezinha.WriteTicket(lista);
+                }
+                else if (rbPagueMenos.Checked)
+                {
+                    string nomeArquivo = Path.GetFileNameWithoutExtension(ofd.FileName);
+                    PagueMenos pagueMenos = new PagueMenos(texto, nomeArquivo);
+                    string linha = pagueMenos.SeparaLinhas();
+                    
+                    linha = pagueMenos.RetiraCodigo(linha);
+                    txtSaida.Text = linha;
                 }
 
                 MessageBox.Show("Ok!");
