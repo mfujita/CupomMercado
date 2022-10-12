@@ -2,6 +2,9 @@ namespace CupomMercado
 {
     public partial class Form1 : Form
     {
+        string nomeArquivo;
+        PagueMenos pagueMenos;
+
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace CupomMercado
 
                 if  (rbAtacadao.Checked)
                 {
-                    string nomeArquivo = Path.GetFileNameWithoutExtension(ofd.FileName);
+                    nomeArquivo = Path.GetFileNameWithoutExtension(ofd.FileName);
                     AtacadaoStaTerezinha atacadaoStaTerezinha = new AtacadaoStaTerezinha(texto, nomeArquivo);
                     string linha = atacadaoStaTerezinha.SeparaLinhas();
                     txtSaida.Text = linha;
@@ -41,18 +44,26 @@ namespace CupomMercado
                 }
                 else if (rbPagueMenos.Checked)
                 {
-                    string nomeArquivo = Path.GetFileNameWithoutExtension(ofd.FileName);
-                    PagueMenos pagueMenos = new PagueMenos(texto, nomeArquivo);
+                    nomeArquivo = Path.GetFileNameWithoutExtension(ofd.FileName);
+                    pagueMenos = new PagueMenos(texto, nomeArquivo);
                     string linha = pagueMenos.SeparaLinhas();
-                    
                     linha = pagueMenos.RetiraCodigo(linha);
+
+                    
                     txtSaida.Text = linha;
-                    List<Dados> lista = pagueMenos.SeparaColunas(linha);
-                    pagueMenos.WriteTicket(lista);
                 }
 
                 MessageBox.Show("Ok!");
             }
+        }
+
+        private void brnProcessar_Click(object sender, EventArgs e)
+        {
+            
+            Relatorio relatorio = new Relatorio(txtSaida.Text, nomeArquivo);
+            List<Dados> lista = relatorio.SeparaColunas();
+            relatorio.WriteTicket();
+
         }
     }
 }

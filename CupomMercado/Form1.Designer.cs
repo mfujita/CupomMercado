@@ -33,6 +33,7 @@
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.rbAtacadao = new System.Windows.Forms.RadioButton();
             this.rbPagueMenos = new System.Windows.Forms.RadioButton();
+            this.brnProcessar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEscolherArquivo
@@ -80,11 +81,22 @@
             this.rbPagueMenos.Text = "Pague Menos";
             this.rbPagueMenos.UseVisualStyleBackColor = true;
             // 
+            // brnProcessar
+            // 
+            this.brnProcessar.Location = new System.Drawing.Point(725, 21);
+            this.brnProcessar.Name = "brnProcessar";
+            this.brnProcessar.Size = new System.Drawing.Size(136, 37);
+            this.brnProcessar.TabIndex = 4;
+            this.brnProcessar.Text = "Processar";
+            this.brnProcessar.UseVisualStyleBackColor = true;
+            this.brnProcessar.Click += new System.EventHandler(this.brnProcessar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 487);
+            this.Controls.Add(this.brnProcessar);
             this.Controls.Add(this.rbPagueMenos);
             this.Controls.Add(this.rbAtacadao);
             this.Controls.Add(this.txtSaida);
@@ -107,5 +119,6 @@
         private OpenFileDialog ofd;
         private RadioButton rbAtacadao;
         private RadioButton rbPagueMenos;
+        private Button brnProcessar;
     }
 }
