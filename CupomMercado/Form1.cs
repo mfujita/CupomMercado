@@ -65,5 +65,11 @@ namespace CupomMercado
             relatorio.WriteTicket();
 
         }
+
+        private void btnEditarCumpom_Click(object sender, EventArgs e)
+        {
+            RefinamentoDigitalizacao refinamentoDigitalizacao = new RefinamentoDigitalizacao();
+            refinamentoDigitalizacao.Show();
+        }
     }
 }

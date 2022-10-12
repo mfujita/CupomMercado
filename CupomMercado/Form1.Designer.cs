@@ -34,11 +34,12 @@
             this.rbAtacadao = new System.Windows.Forms.RadioButton();
             this.rbPagueMenos = new System.Windows.Forms.RadioButton();
             this.brnProcessar = new System.Windows.Forms.Button();
+            this.btnEditarCumpom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEscolherArquivo
             // 
-            this.btnEscolherArquivo.Location = new System.Drawing.Point(12, 21);
+            this.btnEscolherArquivo.Location = new System.Drawing.Point(130, 21);
             this.btnEscolherArquivo.Name = "btnEscolherArquivo";
             this.btnEscolherArquivo.Size = new System.Drawing.Size(136, 37);
             this.btnEscolherArquivo.TabIndex = 0;
@@ -62,7 +63,7 @@
             // rbAtacadao
             // 
             this.rbAtacadao.AutoSize = true;
-            this.rbAtacadao.Location = new System.Drawing.Point(189, 12);
+            this.rbAtacadao.Location = new System.Drawing.Point(307, 12);
             this.rbAtacadao.Name = "rbAtacadao";
             this.rbAtacadao.Size = new System.Drawing.Size(92, 25);
             this.rbAtacadao.TabIndex = 2;
@@ -73,7 +74,7 @@
             // rbPagueMenos
             // 
             this.rbPagueMenos.AutoSize = true;
-            this.rbPagueMenos.Location = new System.Drawing.Point(309, 12);
+            this.rbPagueMenos.Location = new System.Drawing.Point(427, 12);
             this.rbPagueMenos.Name = "rbPagueMenos";
             this.rbPagueMenos.Size = new System.Drawing.Size(121, 25);
             this.rbPagueMenos.TabIndex = 3;
@@ -91,11 +92,22 @@
             this.brnProcessar.UseVisualStyleBackColor = true;
             this.brnProcessar.Click += new System.EventHandler(this.brnProcessar_Click);
             // 
+            // btnEditarCumpom
+            // 
+            this.btnEditarCumpom.Location = new System.Drawing.Point(12, 3);
+            this.btnEditarCumpom.Name = "btnEditarCumpom";
+            this.btnEditarCumpom.Size = new System.Drawing.Size(89, 74);
+            this.btnEditarCumpom.TabIndex = 5;
+            this.btnEditarCumpom.Text = "Editar imagem cupom";
+            this.btnEditarCumpom.UseVisualStyleBackColor = true;
+            this.btnEditarCumpom.Click += new System.EventHandler(this.btnEditarCumpom_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 487);
+            this.Controls.Add(this.btnEditarCumpom);
             this.Controls.Add(this.brnProcessar);
             this.Controls.Add(this.rbPagueMenos);
             this.Controls.Add(this.rbAtacadao);
@@ -120,5 +132,6 @@
         private RadioButton rbAtacadao;
         private RadioButton rbPagueMenos;
         private Button brnProcessar;
+        private Button btnEditarCumpom;
     }
 }
