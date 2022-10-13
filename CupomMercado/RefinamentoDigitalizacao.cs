@@ -57,7 +57,7 @@ namespace CupomMercado
         private void btnProcessar_Click(object sender, EventArgs e)
         {
             Image image = Image.FromFile(pathFile);
-            Bitmap map = new Bitmap(image.Width * 2, image.Height);
+            Bitmap map = new Bitmap(image.Width*2, image.Height, Graphics.FromImage(image));
 
             int esquerdo = Convert.ToInt16(txtEsquerdo.Text);
             int superior = Convert.ToInt16(txtSuperior.Text);
@@ -66,10 +66,12 @@ namespace CupomMercado
             Rectangle copiar = new Rectangle(esquerdo, superior, largura, altura);
             Rectangle colar = new Rectangle(esquerdo + 300, superior - altura, largura, altura);
             string newFile = Path.GetFileNameWithoutExtension( (Path.GetFileName(pathFile)));
+            
 
             using (Graphics g = Graphics.FromImage(map))
             {
-                g.DrawImage(pbEntrada.Image, colar, copiar, GraphicsUnit.Pixel);
+                g.DrawImage(image,0,0);
+                g.DrawImage(image, colar,  copiar, GraphicsUnit.Pixel);
 
                 map.Save(newFile + "NOVO.jpg", ImageFormat.Jpeg);
             }
