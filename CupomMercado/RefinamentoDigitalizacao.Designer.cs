@@ -36,6 +36,7 @@
             this.txtLargura = new System.Windows.Forms.TextBox();
             this.txtAltura = new System.Windows.Forms.TextBox();
             this.pbSaida = new System.Windows.Forms.PictureBox();
+            this.btnProcessar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbEntrada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbSaida)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +44,7 @@
             // pbEntrada
             // 
             this.pbEntrada.Location = new System.Drawing.Point(17, 28);
-            this.pbEntrada.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbEntrada.Margin = new System.Windows.Forms.Padding(4);
             this.pbEntrada.Name = "pbEntrada";
             this.pbEntrada.Size = new System.Drawing.Size(404, 475);
             this.pbEntrada.TabIndex = 0;
@@ -52,7 +53,7 @@
             // txtSuperior
             // 
             this.txtSuperior.Location = new System.Drawing.Point(493, 163);
-            this.txtSuperior.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSuperior.Margin = new System.Windows.Forms.Padding(4);
             this.txtSuperior.Name = "txtSuperior";
             this.txtSuperior.Size = new System.Drawing.Size(78, 27);
             this.txtSuperior.TabIndex = 1;
@@ -106,11 +107,22 @@
             this.pbSaida.TabIndex = 7;
             this.pbSaida.TabStop = false;
             // 
+            // btnProcessar
+            // 
+            this.btnProcessar.Location = new System.Drawing.Point(493, 395);
+            this.btnProcessar.Name = "btnProcessar";
+            this.btnProcessar.Size = new System.Drawing.Size(96, 29);
+            this.btnProcessar.TabIndex = 8;
+            this.btnProcessar.Text = "Processar";
+            this.btnProcessar.UseVisualStyleBackColor = true;
+            this.btnProcessar.Click += new System.EventHandler(this.btnProcessar_Click);
+            // 
             // RefinamentoDigitalizacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 540);
+            this.Controls.Add(this.btnProcessar);
             this.Controls.Add(this.pbSaida);
             this.Controls.Add(this.txtAltura);
             this.Controls.Add(this.txtLargura);
@@ -120,7 +132,7 @@
             this.Controls.Add(this.txtSuperior);
             this.Controls.Add(this.pbEntrada);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RefinamentoDigitalizacao";
             this.Text = "RefinamentoDigitalizacao";
             this.Load += new System.EventHandler(this.RefinamentoDigitalizacao_Load);
@@ -141,5 +153,6 @@
         private TextBox txtLargura;
         private TextBox txtAltura;
         private PictureBox pbSaida;
+        private Button btnProcessar;
     }
 }
