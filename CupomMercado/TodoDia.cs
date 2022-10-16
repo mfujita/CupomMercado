@@ -38,8 +38,8 @@ namespace CupomMercado
                         filtrado += campo.Replace(i.ToString().PadLeft(3, '0'), System.Environment.NewLine + i.ToString().PadLeft(3, '0') + " ");
                         i++;
                     }
-                    else if (campo.Equals(Environment.NewLine))
-                        i++;
+                    //else if (campo.Equals(Environment.NewLine))
+                    //    i++;
                     else
                     {
                         filtrado += campo + " ";

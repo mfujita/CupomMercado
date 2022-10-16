@@ -19,6 +19,12 @@ namespace CupomMercado
             Location = new Point(Width/2, 0);
 
             txtSaida.Size = new Size(Size.Width*96/100, Size.Height*80/100);
+
+            txtSaida.Text = "Carregue o arquivo de texto." + Environment.NewLine +
+                "Ajeite o texto" + Environment.NewLine +
+                "Bloco do cabeçalho (deixe uma linha em branco)" + Environment.NewLine +
+                "Bloco dos produtos (deixe uma linha em branco)" + Environment.NewLine +
+                "Bloco do rodapé";
         }
 
         private void btnEscolherArquivo_Click(object sender, EventArgs e)
