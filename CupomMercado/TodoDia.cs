@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CupomMercado
 {
-    public class PagueMenos
+    public class TodoDia
     {
         string texto = "";
         string fileName = "";
         string data = "";
 
-        public PagueMenos(string todoTexto, string nomeArquivo)
+        public TodoDia(string todoTexto, string nomeArquivo)
         {
             texto = todoTexto;
             fileName = nomeArquivo + ".html";
@@ -34,13 +33,13 @@ namespace CupomMercado
                 }
                 else
                 {
-                    if (campo == i.ToString().PadLeft(2, '0'))
+                    if (campo == i.ToString().PadLeft(3, '0'))
                     {
-                        filtrado += campo.Replace(i.ToString().PadLeft(2, '0'), System.Environment.NewLine + i.ToString().PadLeft(2, '0') + " ");
+                        filtrado += campo.Replace(i.ToString().PadLeft(3, '0'), System.Environment.NewLine + i.ToString().PadLeft(3, '0') + " ");
                         i++;
                     }
-                    else if (campo.Equals("Total") || campo.Equals("TOTAL"))
-                        break;
+                    else if (campo.Equals(Environment.NewLine))
+                        i++;
                     else
                     {
                         filtrado += campo + " ";

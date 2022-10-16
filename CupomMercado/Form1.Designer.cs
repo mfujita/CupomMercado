@@ -35,6 +35,7 @@
             this.rbPagueMenos = new System.Windows.Forms.RadioButton();
             this.brnProcessar = new System.Windows.Forms.Button();
             this.btnEditarCumpom = new System.Windows.Forms.Button();
+            this.rbTodoDia = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // btnEscolherArquivo
@@ -102,11 +103,23 @@
             this.btnEditarCumpom.UseVisualStyleBackColor = true;
             this.btnEditarCumpom.Click += new System.EventHandler(this.btnEditarCumpom_Click);
             // 
+            // rbTodoDia
+            // 
+            this.rbTodoDia.AutoSize = true;
+            this.rbTodoDia.Location = new System.Drawing.Point(307, 33);
+            this.rbTodoDia.Name = "rbTodoDia";
+            this.rbTodoDia.Size = new System.Drawing.Size(88, 25);
+            this.rbTodoDia.TabIndex = 6;
+            this.rbTodoDia.TabStop = true;
+            this.rbTodoDia.Text = "Todo Dia";
+            this.rbTodoDia.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(873, 487);
+            this.Controls.Add(this.rbTodoDia);
             this.Controls.Add(this.btnEditarCumpom);
             this.Controls.Add(this.brnProcessar);
             this.Controls.Add(this.rbPagueMenos);
@@ -133,5 +146,6 @@
         private RadioButton rbPagueMenos;
         private Button brnProcessar;
         private Button btnEditarCumpom;
+        private RadioButton rbTodoDia;
     }
 }

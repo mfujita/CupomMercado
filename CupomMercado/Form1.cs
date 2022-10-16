@@ -4,6 +4,7 @@ namespace CupomMercado
     {
         string nomeArquivo;
         PagueMenos pagueMenos;
+        TodoDia todoDia;
 
         public Form1()
         {
@@ -52,18 +53,28 @@ namespace CupomMercado
                     
                     txtSaida.Text = linha;
                 }
+                else if (rbTodoDia.Checked)
+                {
+                    nomeArquivo = Path.GetFileNameWithoutExtension(ofd.FileName);
+                    todoDia = new TodoDia(texto, nomeArquivo);
+                    string linha = todoDia.SeparaLinhas();
+                    linha = todoDia.RetiraCodigo(linha);
 
-                MessageBox.Show("Ok!");
+                    txtSaida.Text = linha;
+                }
             }
         }
 
         private void brnProcessar_Click(object sender, EventArgs e)
         {
-            
-            Relatorio relatorio = new Relatorio(txtSaida.Text, nomeArquivo);
-            List<Dados> lista = relatorio.SeparaColunas();
-            relatorio.WriteTicket();
-
+            if (txtSaida.Text != "")
+            {
+                Relatorio relatorio = new Relatorio(txtSaida.Text, nomeArquivo);
+                relatorio.GetHeader();
+                relatorio.GetFooter();
+                List<Dados> lista = relatorio.SeparaColunas();
+                relatorio.WriteTicket();
+            }
         }
 
         private void btnEditarCumpom_Click(object sender, EventArgs e)
