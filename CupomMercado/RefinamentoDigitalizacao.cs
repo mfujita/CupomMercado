@@ -44,14 +44,22 @@ namespace CupomMercado
 
             btnProcessar.Location = new Point(txtEsquerdo.Left, txtAltura.Bottom + 50);
 
-            pathFile = @"..\digitalizados\superbarato20220903.jpg";
+            //pathFile = @"..\digitalizados\superbarato20220903.jpg";
+            pathFile = @"..\digitalizados\20221015PagueMenos.jpg";
             pbEntrada.Load(pathFile);
             pbEntrada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
 
-            txtSuperior.Text = "516";
-            txtEsquerdo.Text = "328";
-            txtLargura.Text = "532";
-            txtAltura.Text = "42";
+            //Super Barato
+            //txtSuperior.Text = "516";
+            //txtEsquerdo.Text = "328";
+            //txtLargura.Text = "532";
+            //txtAltura.Text = "42";
+
+            //Super Barato
+            txtSuperior.Text = "502";
+            txtEsquerdo.Text = "0";
+            txtLargura.Text = "1006";
+            txtAltura.Text = "34";
         }
 
         private void btnProcessar_Click(object sender, EventArgs e)
@@ -63,17 +71,25 @@ namespace CupomMercado
             int superior = Convert.ToInt16(txtSuperior.Text);
             int largura = Convert.ToInt16(txtLargura.Text);
             int altura = Convert.ToInt16(txtAltura.Text);
-            Rectangle copiar = new Rectangle(esquerdo, superior, largura, altura);
-            Rectangle colar = new Rectangle(esquerdo + 300, superior - altura, largura, altura);
-            string newFile = Path.GetFileNameWithoutExtension( (Path.GetFileName(pathFile)));
+            
+            string newFile = Path.GetFileNameWithoutExtension((Path.GetFileName(pathFile)));
             
 
             using (Graphics g = Graphics.FromImage(map))
             {
                 g.DrawImage(image,0,0);
-                g.DrawImage(image, colar,  copiar, GraphicsUnit.Pixel);
 
-                map.Save(newFile + "NOVO.jpg", ImageFormat.Jpeg);
+                for (int i = 0; i < 24; i++)
+                {
+                    Rectangle copiar = new Rectangle(esquerdo, 72*i+superior, largura, altura);
+                    Rectangle colar = new Rectangle(esquerdo + 753, 72*i+superior - altura, largura, altura);
+
+                    g.DrawImage(image, colar, copiar, GraphicsUnit.Pixel);
+                    Brush brush = new SolidBrush(Color.White);
+                    g.FillRectangle(brush, copiar);
+                }
+
+                map.Save(@"..\digitalizados\" + newFile + "NOVO.jpg", ImageFormat.Jpeg);
             }
         }
     }
