@@ -25,26 +25,22 @@ namespace CupomMercado
             int i = 1;
             string[] campos = texto.ToString().Split(' ');
 
+
             foreach (string campo in campos)
             {
-                if (i == 1)
+                if (campo == i.ToString().PadLeft(2, '0'))
                 {
-                    filtrado += campo + " ";
+                    filtrado += campo.Replace(i.ToString().PadLeft(2, '0'), System.Environment.NewLine + i.ToString().PadLeft(2, '0') + " ");
                     i++;
+                }
+                else if (campo.Equals("Total") || campo.Equals("TOTAL"))
+                {
+                    filtrado += campo.Replace("Total", System.Environment.NewLine + campo);
+                    filtrado += campo.Replace("TOTAL", System.Environment.NewLine + campo);
                 }
                 else
                 {
-                    if (campo == i.ToString().PadLeft(2, '0'))
-                    {
-                        filtrado += campo.Replace(i.ToString().PadLeft(2, '0'), System.Environment.NewLine + i.ToString().PadLeft(2, '0') + " ");
-                        i++;
-                    }
-                    else if (campo.Equals("Total") || campo.Equals("TOTAL"))
-                        break;
-                    else
-                    {
-                        filtrado += campo + " ";
-                    }
+                    filtrado += campo + " ";
                 }
             }
 

@@ -5,6 +5,7 @@ namespace CupomMercado
         string nomeArquivo;
         PagueMenos pagueMenos;
         TodoDia todoDia;
+        NomeLoja loja;
 
         public Form1()
         {
@@ -46,8 +47,9 @@ namespace CupomMercado
                     AtacadaoStaTerezinha atacadaoStaTerezinha = new AtacadaoStaTerezinha(texto, nomeArquivo);
                     string linha = atacadaoStaTerezinha.SeparaLinhas();
                     txtSaida.Text = linha;
-                    List<Dados> lista = atacadaoStaTerezinha.RefinaTexto(linha);
-                    atacadaoStaTerezinha.WriteTicket(lista);
+                    //List<Dados> lista = atacadaoStaTerezinha.RefinaTexto(linha);
+                    //atacadaoStaTerezinha.WriteTicket(lista);
+                    loja = NomeLoja.Atacadão;
                 }
                 else if (rbPagueMenos.Checked)
                 {
@@ -55,9 +57,9 @@ namespace CupomMercado
                     pagueMenos = new PagueMenos(texto, nomeArquivo);
                     string linha = pagueMenos.SeparaLinhas();
                     linha = pagueMenos.RetiraCodigo(linha);
-
                     
                     txtSaida.Text = linha;
+                    loja = NomeLoja.PagueMenos;
                 }
                 else if (rbTodoDia.Checked)
                 {
@@ -67,6 +69,7 @@ namespace CupomMercado
                     linha = todoDia.RetiraCodigo(linha);
 
                     txtSaida.Text = linha;
+                    loja = NomeLoja.TodoDia;
                 }
             }
         }
@@ -75,7 +78,7 @@ namespace CupomMercado
         {
             if (txtSaida.Text != "")
             {
-                Relatorio relatorio = new Relatorio(txtSaida.Text, nomeArquivo);
+                Relatorio relatorio = new Relatorio(txtSaida.Text, nomeArquivo, loja);
                 relatorio.GetHeader();
                 relatorio.GetFooter();
                 List<Dados> lista = relatorio.SeparaColunas();

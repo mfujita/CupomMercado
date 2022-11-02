@@ -11,16 +11,18 @@ namespace CupomMercado
         string linhas;
         string fileName = "";
         string data = "";
+        NomeLoja loja;
         List<string> header;
         List<string> footer;
         List<Dados> listaDetalhada;
         int indexHeader;
         int indexFooter;
 
-        public Relatorio(string textoOrganizado, string nomeArquivoTxt)
+        public Relatorio(string textoOrganizado, string nomeArquivoTxt, NomeLoja estabelecimento)
         {
             linhas = textoOrganizado;
             fileName = nomeArquivoTxt + ".html";
+            loja = estabelecimento;
         }
 
         private List<string> EraseSpaceEndOfLine(string[] campos)
@@ -77,18 +79,39 @@ namespace CupomMercado
             string preco = "";
             listaDetalhada = new List<Dados>();
 
-            for (int i = indexHeader+1; i < indexFooter; i++)
-            {
-                if (lista[i] != "")
-                {
-                    indice = campos[i].Substring(0, 3);
-                    codigo = "";
-                    int ultimoEspaco = lista[i].LastIndexOf(' ');
 
-                    preco = campos[i].Substring(ultimoEspaco + 1, lista[i].Length - ultimoEspaco - 1);
-                    descricao = lista[i].Substring(4, lista[i].Length - preco.Length - 4);
-                    Dados var = new Dados(indice, "", descricao, preco);
-                    listaDetalhada.Add(var);
+            if  (loja.Equals(NomeLoja.TodoDia))
+            { 
+                for (int i = indexHeader+1; i < indexFooter; i++)
+                {
+                    if (lista[i] != "")
+                    {
+                        indice = campos[i].Substring(0, 3);
+                        codigo = "";
+                        int ultimoEspaco = lista[i].LastIndexOf(' ');
+
+                        preco = campos[i].Substring(ultimoEspaco + 1, lista[i].Length - ultimoEspaco - 1);
+                        descricao = lista[i].Substring(4, lista[i].Length - preco.Length - 4);
+                        Dados var = new Dados(indice, "", descricao, preco);
+                        listaDetalhada.Add(var);
+                    }
+                }
+            }
+            else if (loja.Equals(NomeLoja.PagueMenos))
+            {
+                for (int i = indexHeader + 1; i < indexFooter; i++)
+                {
+                    if (lista[i] != "")
+                    {
+                        indice = campos[i].Substring(0, 2);
+                        codigo = "";
+                        int ultimoEspaco = lista[i].LastIndexOf(' ');
+
+                        preco = campos[i].Substring(ultimoEspaco + 1, lista[i].Length - ultimoEspaco - 1);
+                        descricao = lista[i].Substring(3, lista[i].Length - preco.Length - 4);
+                        Dados var = new Dados(indice, "", descricao, preco);
+                        listaDetalhada.Add(var);
+                    }
                 }
             }
 

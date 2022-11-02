@@ -45,21 +45,21 @@ namespace CupomMercado
             btnProcessar.Location = new Point(txtEsquerdo.Left, txtAltura.Bottom + 50);
 
             //pathFile = @"..\digitalizados\superbarato20220903.jpg";
-            pathFile = @"..\digitalizados\20221015PagueMenos.jpg";
+            pathFile = @"..\digitalizados\20221023PagueMenos.jpg";
             pbEntrada.Load(pathFile);
             pbEntrada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
 
-            //Super Barato
-            //txtSuperior.Text = "516";
-            //txtEsquerdo.Text = "328";
-            //txtLargura.Text = "532";
-            //txtAltura.Text = "42";
+            //Pague Menos
+            txtSuperior.Text = "598";
+            txtEsquerdo.Text = "441";
+            txtLargura.Text = "367";
+            txtAltura.Text = "40";
 
             //Super Barato
-            txtSuperior.Text = "502";
-            txtEsquerdo.Text = "0";
-            txtLargura.Text = "1006";
-            txtAltura.Text = "34";
+            //txtSuperior.Text = "502";
+            //txtEsquerdo.Text = "0";
+            //txtLargura.Text = "1006";
+            //txtAltura.Text = "34";
         }
 
         private void btnProcessar_Click(object sender, EventArgs e)
@@ -79,10 +79,10 @@ namespace CupomMercado
             {
                 g.DrawImage(image,0,0);
 
-                for (int i = 0; i < 24; i++)
+                for (int i = 10; i < 39; i++)
                 {
                     Rectangle copiar = new Rectangle(esquerdo, 72*i+superior, largura, altura);
-                    Rectangle colar = new Rectangle(esquerdo + 753, 72*i+superior - altura, largura, altura);
+                    Rectangle colar = new Rectangle(esquerdo + largura, 72*i+superior - 35, largura, altura);
 
                     g.DrawImage(image, colar, copiar, GraphicsUnit.Pixel);
                     Brush brush = new SolidBrush(Color.White);
